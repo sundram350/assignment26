@@ -1,0 +1,314 @@
+Ans=1->
+#include<iostream>
+#include<cstdlib>
+using namespace std;
+
+class complex
+{
+private:
+    int a,b;
+public :
+    void setData(int real,int imag)
+    {
+        a=real;
+        b=imag;
+    }
+    void showData()
+    {
+        cout<<"\n Real="<<a<<"\n Imag="<<b<<endl;
+    }
+    complex operator +(complex c2)
+    {
+        complex t;
+        t.a=a+c2.a;
+        t.b=b+c2.b;
+        return (t);
+    }
+    complex add(complex c2)
+    {
+        complex t;
+        t.a=a+c2.a;
+        t.b=b+c2.b;
+        return (t);
+    }
+};
+
+int main()
+{
+    complex c1,c2,c3;
+    c1.setData(10,20);
+    c2.setData(30,40);
+    c3=c1.add(c2);
+    c3.showData();
+    c3=c1+c2;
+    c3.showData();
+}
+
+Ans=2->
+#include<iostream>
+using namespace std;
+
+class time
+{
+private:
+    int h,m,s;
+public:
+    void setTime(int hours ,int minute, int second)
+    {
+        h=hours;
+        m=minute;
+        s=second;
+    }
+    void showTime()
+    {
+        cout<<endl<<" Hours="<<h<<endl<<" Minute="<<m<<endl<<" Second="<<s<<endl;
+        cout<<endl<<" Time is -> "<<h<<"/"<<m<<"/"<<s<<endl;
+    }
+    void normalize()
+    {
+        m=m+s/60;
+        s=s%60;
+        h=h+m/60;
+        m=m%60;
+    }
+    time add(time T1)
+    {
+        time t;
+        t.h=h+T1.h;
+        t.m=m+T1.m;
+        t.s=s+T1.s;
+	t.normalize();
+        return t;
+    }
+    time operator +(time T1)
+    {
+
+        time t;
+        t.h=h+T1.h;
+        t.m=m+T1.m;
+        t.s=s+T1.s;
+
+        return t;
+    }
+};
+
+int main()
+{
+    time t1,t2;
+
+    t1.setTime(5,44,345);    
+    t1.showTime();
+    t2.setTime(1,1,1);
+    t1=t1+t2;
+    t1.showTime();
+}
+
+Ans=3->
+#include<iostream>
+using namespace std;
+
+class cube
+{
+private:
+    int a;
+public:
+    cube(int b)
+    {
+        a=b;
+        cout<<endl;
+    }
+    int volume()
+    {
+        int r;
+        r=a*a*a;
+        return r;
+    }
+    showdata()
+    {
+        cout<<endl<<a<<" Cube is = "<<volume()<<endl;
+    }
+    cube()
+    {
+
+    }
+    getdata()
+    {
+        cout<<endl<<" Enter Cube value "<<endl;
+        cin>>a;
+    }
+};
+
+int main()
+{
+    cube c1,c2;
+    c1=3;
+    c1.volume();
+    c1.showdata();
+    c1.getdata();
+    c1.volume();
+    c1.showdata();
+}
+
+Ans=4->#include<iostream>
+using namespace std;
+
+class counter
+{
+private :
+    int count;
+public:
+    counter()
+    {
+        count=0;
+    }
+    void incr()
+    {
+        count++;
+    }
+    void display()
+    {
+        cout<<endl<<count<<endl;
+    }
+};
+
+int main()
+{
+    counter c1,c2;
+    int i;
+    for(i=0;i<5;i++)
+    {
+        c1.incr();
+        c1.display();
+    }
+}
+
+Ans=5->
+#include<iostream>
+using namespace std;
+
+class date
+{
+private:
+    int d,m,y;
+public:
+    date()
+    {
+       d=12;
+       m=5;
+       y=2022;
+    }
+    void show()
+    {
+        cout<<endl<<d<<"/"<<m<<"/"<<y<<endl;
+    }
+    void getdata()
+    {
+        cout<<endl<<" Enter Date ->  "<<endl;
+        cin>>d>>m>>y;
+    }
+};
+
+int main()
+{
+    date d1;
+    d1.show();
+    d1.getdata();
+    d1.show();
+}
+
+Ans=6->
+#include<iostream>
+#include<string>
+using namespace std;
+
+class student
+{
+private:
+    int age;
+    char name[20];
+    char subject[10];
+public :
+    void display()
+   {
+       cout<<endl<<name<<endl<<age<<endl<<subject<<endl;
+   }
+   student()
+   {
+       cout<<" Enter student "<<endl;
+       cin>>name>>age>>subject;
+   }
+};
+
+int main()
+{
+    student s1;
+    s1.display();
+}
+
+Ans=7->
+#include<iostream>
+using namespace std;
+class Box;
+class Box
+{
+private:
+    int l,b,h;
+public:    
+    void getdata(int ll,int bb,int hh)
+    {
+        l=ll;
+        b=bb;
+        h=hh;
+    }
+    int cal()
+    {
+        int a;
+        a=l*h*b;
+        return(a);
+    }
+    void display()
+    {
+        cout<<endl<<l<<endl<<h<<endl<<b<<endl;
+    }
+};
+
+int main()
+{
+    int a;
+    Box b1;
+    b1.getdata(3,6,4);
+    a=b1.cal();
+    b1.display();
+    return 0;
+}
+Ans=10->
+#include<iostream>
+using namespace std;
+
+class staticvar
+{
+private:
+    static int i;
+public :
+    void display()
+    {
+        cout<<endl<<i;
+    }
+    void inc()
+    {
+        i++;
+    }
+};
+
+int staticvar::i;
+int main()
+{
+    staticvar v1;
+    v1.inc();
+    v1.display();
+    v1.inc();
+    v1.display();
+    v1.inc();
+    v1.display();
+    return 0;
+}
