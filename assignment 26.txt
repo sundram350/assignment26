@@ -312,3 +312,38 @@ int main()
     v1.display();
     return 0;
 }
+
+Ans=8->
+#include<iostream>
+#include<iomanip>
+#include<strstream>
+using namespace std;
+
+class Bank
+{
+private:
+    static float roi;
+    int simI;
+
+public:
+    void showdata()
+    {
+        cout<<roi<<endl;
+    }
+    void simple_interest(int p,int r,int t)
+    {
+        simI=(p*r*t)/100;
+    }
+    void display()
+    {
+        cout<<simI<<endl;
+    }
+};
+float Bank::roi=3.5f;
+int main()
+{
+    Bank b1;
+    b1.showdata();
+    b1.simple_interest(50000,6,2);
+    b1.display();
+}
